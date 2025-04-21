@@ -1,4 +1,4 @@
-package com.eventostec.api.config;
+package com.eventostec.api.infra.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
