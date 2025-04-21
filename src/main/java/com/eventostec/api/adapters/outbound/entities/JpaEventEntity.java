@@ -1,5 +1,6 @@
 package com.eventostec.api.adapters.outbound.entities;
 
+import com.eventostec.api.domain.event.Event;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -16,7 +17,6 @@ import java.util.UUID;
 @Setter
 @Getter
 @NoArgsConstructor
-//@AllArgsConstructor
 public class JpaEventEntity {
     @Id
     @GeneratedValue
@@ -38,4 +38,7 @@ public class JpaEventEntity {
         this.remote = remote;
         this.date = date;
     }
+
+//    public JpaEventEntity(Event event) {
+//    }
 }

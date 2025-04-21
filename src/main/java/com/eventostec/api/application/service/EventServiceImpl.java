@@ -75,23 +75,7 @@ public class EventServiceImpl implements EventUseCases {
 
         List<Coupon> coupons = couponService.consultCoupons(eventId, new Date());
 
-        List<EventDetailsDTO.CouponDTO> couponDTOs = coupons.stream()
-                .map(coupon -> new EventDetailsDTO.CouponDTO(
-                        coupon.getCode(),
-                        coupon.getDiscount(),
-                        coupon.getValid()))
-                .collect(Collectors.toList());
-
-        return new EventDetailsDTO(
-                event.getId(),
-                event.getTitle(),
-                event.getDescription(),
-                event.getDate(),
-                address.isPresent() ? address.get().getCity() : "",
-                address.isPresent() ? address.get().getUf() : "",
-                event.getImgUrl(),
-                event.getEventUrl(),
-                couponDTOs);
+        return mapper.domainToDetailsDTO(event, address, coupons);
     }
 
     public void deleteEvent(UUID eventId, String adminKey){
